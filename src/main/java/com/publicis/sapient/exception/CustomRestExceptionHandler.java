@@ -15,6 +15,7 @@ public class CustomRestExceptionHandler extends ResponseEntityExceptionHandler {
 
         GenericErrorResponse genericErrorResponse = new GenericErrorResponse();
         genericErrorResponse.setStatus(exception.getHttpStatus());
+        genericErrorResponse.setMessage(exception.getMessage());
         return new ResponseEntity<Object>(
                             genericErrorResponse,
                             new HttpHeaders(),
@@ -26,6 +27,8 @@ public class CustomRestExceptionHandler extends ResponseEntityExceptionHandler {
 
         GenericErrorResponse genericErrorResponse = new GenericErrorResponse();
         genericErrorResponse.setStatus(exception.getHttpStatus());
+        genericErrorResponse.setMessage(exception.getMessage());
+
         return new ResponseEntity<Object>(
                 genericErrorResponse,
                 new HttpHeaders(),

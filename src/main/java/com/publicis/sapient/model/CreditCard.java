@@ -11,7 +11,6 @@ import java.math.BigDecimal;
 public class CreditCard {
     @Id
     @Column(name="ID")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonIgnore
     private String id;
 
