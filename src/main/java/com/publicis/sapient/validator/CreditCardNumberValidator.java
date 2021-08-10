@@ -1,6 +1,7 @@
 package com.publicis.sapient.validator;
 
 import com.publicis.sapient.model.CreditCard;
+import com.publicis.sapient.process.ProcessingContext;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
@@ -8,7 +9,7 @@ import java.util.Arrays;
 public class CreditCardNumberValidator implements IValidator<CreditCard>{
 
     @Override
-    public boolean validate(CreditCard creditCard) {
+    public boolean validate(CreditCard creditCard, ProcessingContext processingContext) {
         String cardNumber = creditCard.getCardNumber();
         int []cardDigitArray = new int[cardNumber.length()];
         for(int i=0;i<cardDigitArray.length;++i){
@@ -26,6 +27,8 @@ public class CreditCardNumberValidator implements IValidator<CreditCard>{
         int sum = sumOfArrayElements(cardDigitArray);
         if( sum%10 ==0) {
             return true;
+        }else {
+            processingContext.setErrorCount(processingContext.getErrorCount()+1);
         }
         return false;
     }

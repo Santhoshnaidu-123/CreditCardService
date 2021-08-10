@@ -2,10 +2,7 @@ package com.publicis.sapient.model;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigDecimal;
 @Data
 @Entity
@@ -13,6 +10,7 @@ import java.math.BigDecimal;
 public class CreditCard {
     @Id
     @Column(name="ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
 
     @Column(name="OWNER")
@@ -24,6 +22,6 @@ public class CreditCard {
     @Column(name="CARD_NUMBER")
     private String cardNumber;
 
-    @Column(name="limit")
-    private BigDecimal limit;
+    @Column(name="CARD_LIMIT")
+    private BigDecimal cardLimit;
 }
