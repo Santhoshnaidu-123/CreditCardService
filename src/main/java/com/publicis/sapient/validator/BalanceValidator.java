@@ -2,7 +2,6 @@ package com.publicis.sapient.validator;
 
 import com.publicis.sapient.model.CreditCard;
 import com.publicis.sapient.process.ProcessingContext;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;

@@ -1,5 +1,6 @@
 package com.publicis.sapient.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -11,6 +12,7 @@ public class CreditCard {
     @Id
     @Column(name="ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonIgnore
     private String id;
 
     @Column(name="OWNER")
