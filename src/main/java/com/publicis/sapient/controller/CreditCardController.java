@@ -43,6 +43,7 @@ public class CreditCardController {
     public ResponseEntity<CreditCardSearchResponse> read(@RequestParam(defaultValue = "0")  int page,@RequestParam(defaultValue = "2")int size){
         CreditCardSearchResponse creditCardSearchResponse = new CreditCardSearchResponse();
         try{
+            validateInputParam(page,size);
             Pageable pageable = PageRequest.of(page,size);
             Page<CreditCard> creditCards = creditCardRepository.findAll(pageable);
 
@@ -51,12 +52,20 @@ public class CreditCardController {
             creditCardSearchResponse.setTotalPages(creditCards.getTotalPages());
             creditCardSearchResponse.setTotalItems(creditCards.getTotalElements());
 
+        }catch (InValidInputException exception){
+            throw new RestRuntimeException(exception.getMessage(),HttpStatus.BAD_REQUEST);
         }catch (Exception exception){
             throw new RestRuntimeException(exception.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
         }
         if (null== creditCardSearchResponse.getCreditCardList()|| creditCardSearchResponse.getCreditCardList().isEmpty()){
-            throw new ResourceNotFoundException("No data found",HttpStatus.NOT_FOUND);
+            throw new ResourceNotFoundException("No data found ",HttpStatus.NOT_FOUND);
         }
         return  new ResponseEntity<>(creditCardSearchResponse,HttpStatus.OK);
+    }
+
+    public void validateInputParam(int page,int size) throws InValidInputException{
+        if(page<0 || size>1000){
+            throw new InValidInputException("Invalid page size");
+        }
     }
 }

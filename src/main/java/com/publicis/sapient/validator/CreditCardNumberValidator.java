@@ -29,6 +29,8 @@ public class CreditCardNumberValidator implements IValidator<CreditCard>{
             return true;
         }else {
             processingContext.setErrorCount(processingContext.getErrorCount()+1);
+            processingContext.getErrors().add(validationFailureMessage());
+
         }
         return false;
     }

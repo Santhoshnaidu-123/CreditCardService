@@ -9,7 +9,6 @@ import java.util.List;
 public class GenericErrorResponse {
     private HttpStatus status;
     private String message;
-    private List<String> errors;
 
 
 

@@ -8,12 +8,9 @@ import org.springframework.stereotype.Component;
 public class CardLengthValidator implements IValidator<CreditCard>{
     @Override
     public boolean validate(CreditCard creditCard, ProcessingContext processingContext) {
-        if(null == creditCard.getCardNumber() || creditCard.getCardNumber().isEmpty()){
+        if(null == creditCard.getCardNumber() || creditCard.getCardNumber().isEmpty()||creditCard.getCardNumber().length()>19){
             processingContext.setErrorCount(processingContext.getErrorCount()+1);
-            return false;
-        }
-        if(creditCard.getCardNumber().length()>19){
-            processingContext.setErrorCount(processingContext.getErrorCount()+1);
+            processingContext.getErrors().add(validationFailureMessage());
             return false;
         }
         return true;

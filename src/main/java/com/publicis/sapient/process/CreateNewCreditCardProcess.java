@@ -29,7 +29,7 @@ public class CreateNewCreditCardProcess implements IProcess<CreditCard>{
             iValidator.validate(creditCard,processingContext);
         });
         if(processingContext.getErrorCount()>0){
-            throw new InValidInputException("Input validation failed");
+            throw new InValidInputException("Input validation failed ["+processingContext.getAllErrors()+"]");
         }
         creditCard.setId(UniqueIDGenerator.getUniqueId());
         CreditCard persistedCard = creditCardRepository.save(creditCard);
