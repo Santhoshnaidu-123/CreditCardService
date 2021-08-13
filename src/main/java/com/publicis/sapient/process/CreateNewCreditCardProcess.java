@@ -12,27 +12,21 @@ import java.util.Arrays;
 import java.util.List;
 
 @Component
-public class CreateNewCreditCardProcess implements IProcess<CreditCard>{
+public class CreateNewCreditCardProcess extends GenericProcess<CreditCard>{
 
     private List<String> validatorList = Arrays.asList("creditCardNumberValidator","balanceValidator","cardLengthValidator");
-    @Autowired
-    private ApplicationContext applicationContext;
 
     @Autowired
     private ICreditCardRepository creditCardRepository;
 
     @Override
-    public CreditCard process(CreditCard creditCard) throws  InValidInputException{
-        ProcessingContext processingContext = new ProcessingContext();
-        validatorList.stream().forEach(validator->{
-            IValidator<CreditCard> iValidator = (IValidator<CreditCard>) applicationContext.getBean(validator);
-            iValidator.validate(creditCard,processingContext);
-        });
-        if(processingContext.getErrorCount()>0){
-            throw new InValidInputException("Input validation failed ["+processingContext.getAllErrors()+"]");
-        }
+    public CreditCard execute(CreditCard creditCard) throws  InValidInputException{
         creditCard.setId(UniqueIDGenerator.getUniqueId());
         CreditCard persistedCard = creditCardRepository.save(creditCard);
         return persistedCard;
+    }
+    @Override
+    public List<String> getValidatorList() {
+        return Arrays.asList("creditCardNumberValidator","balanceValidator","cardLengthValidator");
     }
 }
