@@ -4,7 +4,7 @@ import com.publicis.sapient.exception.InValidInputException;
 import com.publicis.sapient.exception.ResourceNotFoundException;
 import com.publicis.sapient.exception.RestRuntimeException;
 import com.publicis.sapient.model.CreditCard;
-import com.publicis.sapient.poho.CreditCardSearchResponse;
+import com.publicis.sapient.pojo.CreditCardSearchResponse;
 import com.publicis.sapient.process.CreateNewCreditCardProcess;
 import com.publicis.sapient.repository.ICreditCardRepository;
 import org.springframework.beans.factory.annotation.Autowired;

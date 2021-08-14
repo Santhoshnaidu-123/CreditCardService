@@ -3,9 +3,7 @@ package com.publicis.sapient.process;
 import com.publicis.sapient.exception.InValidInputException;
 import com.publicis.sapient.model.CreditCard;
 import com.publicis.sapient.repository.ICreditCardRepository;
-import com.publicis.sapient.validator.IValidator;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;

@@ -3,7 +3,9 @@ package com.publicis.sapient.validator;
 import com.publicis.sapient.model.CreditCard;
 import com.publicis.sapient.process.ProcessingContext;
 import org.junit.Test;
+
 import java.math.BigDecimal;
+
 import static org.junit.Assert.assertEquals;
 
 public class BalanceValidatorTest {

@@ -1,4 +1,4 @@
-package com.publicis.sapient.poho;
+package com.publicis.sapient.pojo;
 
 import com.publicis.sapient.model.CreditCard;
 import lombok.Data;
