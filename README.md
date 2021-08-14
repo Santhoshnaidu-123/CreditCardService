@@ -4,7 +4,7 @@ CreditCardService has 3 main components.
  * A validation layer to apply multiple validation before creating a new card 
  * A Process layer to orchestrate various steps of creating a card
 
-##How to run the app locally?
+## How to run the app locally?
 Useful docker command to build and deploy images 
 Image has already been uploaded in docker as public image.
 <code>
@@ -18,7 +18,7 @@ Image has already been uploaded in docker as public image.
 Then open URL in browser
 http://localhost:8080/sapient/swagger-ui/index.html
 
-##Sample input for creating a new credit card
+## Sample input for creating a new credit card
 **Input**
 <code>
 {
@@ -39,7 +39,7 @@ http://localhost:8080/sapient/swagger-ui/index.html
 }
 </code>
 
-##Sample input to attempt to create a new credit card which has invalid card number
+## Sample input to attempt to create a new credit card which has invalid card number
 **Input**
 <code>
 {
@@ -57,7 +57,7 @@ http://localhost:8080/sapient/swagger-ui/index.html
 "message": "Input validation failed [ Validation failed : class com.publicis.sapient.validator.CreditCardNumberValidator]"
 }
 </code>
-##Sample input to attempt to create a new credit card which has invalid card number and balance
+## Sample input to attempt to create a new credit card which has invalid card number and balance
 **Input**
 <code>
 {
@@ -76,5 +76,5 @@ http://localhost:8080/sapient/swagger-ui/index.html
 }
 </code>
 
-##URL for invoking get api
+## URL for invoking get api
 curl -X GET "http://localhost:8080/sapient/card/getall?page=0&size=10" -H "accept: application/json"
