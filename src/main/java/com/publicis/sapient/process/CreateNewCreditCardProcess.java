@@ -12,7 +12,6 @@ import java.util.List;
 @Component
 public class CreateNewCreditCardProcess extends GenericProcess<CreditCard>{
 
-    private List<String> validatorList = Arrays.asList("creditCardNumberValidator","balanceValidator","cardLengthValidator");
 
     @Autowired
     private ICreditCardRepository creditCardRepository;
