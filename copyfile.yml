@@ -1,0 +1,9 @@
+
+---
+-	hosts:  web_servers
+        become: true
+        tasks:
+          -     name:   copy war onto tomcat server
+                copy:
+                  src:  /tmp/
+                  dest: /opt/apache-tomcat-8.5.78/webapps
