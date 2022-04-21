@@ -1,9 +1,11 @@
-
 ---
--	hosts:  web_servers
+-       hosts: web_servers
         become: true
-        tasks:
-          -     name:   copy war onto tomcat server
+        tasks: 
+          -     name: copy war onto tomcat server
                 copy:
-                  src:  /tmp/
-                  dest: /opt/apache-tomcat-8.5.78/webapps
+                  src: /var/lib/jenkins/workspace/credit/target/
+                  dest: /opt/apache-tomcat-8.5.78/webapp/
+        
+                
+                
