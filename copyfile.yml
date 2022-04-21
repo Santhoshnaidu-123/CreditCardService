@@ -5,7 +5,7 @@
           -     name: copy war onto tomcat server
                 copy:
                   src: /var/lib/jenkins/workspace/credit/target/
-                  dest: /opt/apache-tomcat-8.5.78/webapp/
+                  dest: /opt/apache-tomcat-8.5.78/webapps/webapp/
         
                 
                 
